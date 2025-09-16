@@ -15,7 +15,7 @@ export default function Navbar() {
         scroller.scrollTo(id, {
           duration: 500,
           smooth: true,
-          offset: -70, // adjust for navbar height
+          offset: -50, // adjust for navbar height
         });
       }, 100);
     } else {
@@ -23,7 +23,7 @@ export default function Navbar() {
       scroller.scrollTo(id, {
         duration: 500,
         smooth: true,
-        offset: -70,
+        offset: -50,
       });
     }
   };

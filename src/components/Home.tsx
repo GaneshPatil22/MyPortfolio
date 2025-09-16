@@ -1,15 +1,18 @@
-import { Link } from "react-router-dom";
 import profilePic from "../assets/profile.jpg"; // add a small profile image in src/assets
 import SocialLinks from "./SocialLinks";
 import Projects from "./Projects";
 import Contact from "./Contact";
 import TechStack from "./TechStack";
+import { Link as ScrollLink } from "react-scroll";
 
 export default function Home() {
   return (
     <div className="px-6 py-12 max-w-6xl mx-auto">
       {/* Hero Section */}
-      <section id="hero" className="flex flex-col md:flex-row items-center mb-16 gap-8">
+      <section
+        id="hero"
+        className="flex flex-col md:flex-row items-center mb-16 gap-8"
+      >
         {/* Text */}
         <div className="md:w-2/3 text-center md:text-left">
           <h1 className="text-5xl font-bold mb-4">Hello, I’m Ganesh 👋</h1>
@@ -22,11 +25,18 @@ export default function Home() {
             with me.
           </p>
           <SocialLinks theme="light" />
-          <Link to="/projects">
+
+          <ScrollLink
+            to="projects"
+            smooth={true}
+            duration={500}
+            offset={-50}
+            className="cursor-pointer text-gray-700 hover:text-blue-600"
+          >
             <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
               View My Projects
             </button>
-          </Link>
+          </ScrollLink>
         </div>
 
         {/* Profile Image */}
@@ -59,7 +69,6 @@ export default function Home() {
       <section id="contact" className="mb-1">
         <Contact />
       </section>
-
     </div>
   );
 }

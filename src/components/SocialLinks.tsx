@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 
 interface Props {
@@ -16,7 +16,7 @@ export default function SocialLinks({ theme = "light" }: Props) {
   return (
     <div className="p-3 flex space-x-6">
       <a
-        href="https://github.com/yourusername"
+        href="https://github.com/GaneshPatil22"
         target="_blank"
         rel="noopener noreferrer"
         className={`${baseColor} ${size}`}
@@ -25,7 +25,7 @@ export default function SocialLinks({ theme = "light" }: Props) {
       </a>
 
       <a
-        href="https://linkedin.com/in/yourusername"
+        href="https://www.linkedin.com/in/ganesh-patil-2b3431119/"
         target="_blank"
         rel="noopener noreferrer"
         className={`${baseColor} ${size} hover:text-blue-500`}
@@ -33,17 +33,17 @@ export default function SocialLinks({ theme = "light" }: Props) {
         <FaLinkedin />
       </a>
 
-      <a
+      {/* <a
         href="https://www.youtube.com/@yourchannel"
         target="_blank"
         rel="noopener noreferrer"
         className={`${baseColor} ${size} hover:text-red-500`}
       >
         <FaYoutube />
-      </a>
+      </a> */}
 
       <a
-        href="https://leetcode.com/yourusername"
+        href="https://leetcode.com/u/Sonic22/"
         target="_blank"
         rel="noopener noreferrer"
         className={`${baseColor} ${size} hover:text-orange-500`}

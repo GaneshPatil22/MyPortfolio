@@ -4,6 +4,8 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Blogs from "./components/Blogs";
+import BlogDetail from "./components/BlogDetail";
+import AddBlog from "./components/AddBlog";
 
 export default function App() {
   return (
@@ -15,6 +17,8 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/blogs/:id" element={<BlogDetail />} />
+          <Route path="/blogs/add" element={<AddBlog />} />
         </Routes>
       </div>
 
