@@ -24,14 +24,14 @@ export default function Contact() {
 
     emailjs
       .send(
-        import.meta.env.REACT_APP_EMAILJS_SERVICE_ID!,
-        import.meta.env.REACT_APP_EMAILJS_TEMPLATE_ID!,
+        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
         {
           from_name: name,
           from_email: email,
           message: message,
         },
-        import.meta.env.REACT_APP_EMAILJS_PUBLIC_KEY!
+        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
       )
       .then(
         () => {
@@ -47,7 +47,6 @@ export default function Contact() {
   return (
     <div className="px-6 py-8 max-w-4xl mx-auto">
       <h1 className="text-4xl font-bold mb-8 text-center">Contact Me</h1>
-
       <form
         className="bg-white p-8 rounded-xl shadow-md max-w-xl mx-auto"
         onSubmit={handleSubmit}
