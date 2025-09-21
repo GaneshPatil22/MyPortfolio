@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "emailjs-com";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -21,13 +22,26 @@ export default function Contact() {
       return;
     }
 
-    setError("");
-    alert("Message sent successfully! ✅");
-
-    // Reset form
-    setName("");
-    setEmail("");
-    setMessage("");
+    emailjs
+      .send(
+        import.meta.env.REACT_APP_EMAILJS_SERVICE_ID!,
+        import.meta.env.REACT_APP_EMAILJS_TEMPLATE_ID!,
+        {
+          from_name: name,
+          from_email: email,
+          message: message,
+        },
+        import.meta.env.REACT_APP_EMAILJS_PUBLIC_KEY!
+      )
+      .then(
+        () => {
+          alert("Message sent successfully! ✅");
+          setName("");
+          setEmail("");
+          setMessage("");
+        },
+        () => setError("Failed to send message. Please try again.")
+      );
   };
 
   return (
