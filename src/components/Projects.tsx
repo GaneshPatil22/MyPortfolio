@@ -2,6 +2,12 @@ import { useState } from "react";
 import eveuterLogo from "../assets/eventur.png";
 import jioMart from "../assets/jioMart.webp";
 import myJio from "../assets/MyJio.webp";
+import ess from "../assets/ess.webp";
+import sm from "../assets/sm.webp";
+import oneApp from "../assets/DTDL.png";
+import mtailor from "../assets/Mtailor.webp";
+import funResume from "../assets/funResume.png";
+import myResume from "../assets/myResume.png";
 
 interface Project {
   name: string;
@@ -20,7 +26,7 @@ const projects: Project[] = [
     description:
       "Eventur is an all-in-one event management platform that simplifies registration, check-in, audience engagement, and certification for in-person, virtual, and hybrid events.",
     image: eveuterLogo,
-    tech: ["iOS", "Swift", "Postman", "Xcode"],
+    tech: ["iOS", "Swift", "Postman", "Xcode", "Git", "Firebase"],
     appStore: "https://apps.apple.com/us/app/eventur/id1174453957",
     website: "https://www.eventur.com/",
   },
@@ -29,7 +35,7 @@ const projects: Project[] = [
     description:
       "JioMart delivers everything from groceries to fashion and electronics with free home delivery, no minimum order, and super-fast grocery delivery in just 10–30 minutes.",
     image: jioMart,
-    tech: ["iOS", "Swift", "Postman", "Xcode", "Charles"],
+    tech: ["iOS", "Swift", "Postman", "Xcode", "Charles", "Git", "Firebase"],
     appStore:
       "https://apps.apple.com/in/app/jiomart-online-shopping-app/id1522085683",
     website: "https://www.jiomart.com/",
@@ -38,21 +44,65 @@ const projects: Project[] = [
     name: "MyJio: For Everything Jio",
     description:
       "MyJio is your all-in-one app to manage Jio services—telecom, entertainment, finance, shopping, health, and more—seamlessly in one place.",
-    image:
-      myJio,
-    tech: ["iOS", "Swift", "Postman", "Xcode", "Charles"],
-    appStore: "https://apps.apple.com/in/app/myjio-for-everything-jio/id1074964262",
+    image: myJio,
+    tech: ["iOS", "Swift", "Postman", "Xcode", "Charles", "Git", "Firebase"],
+    appStore:
+      "https://apps.apple.com/in/app/myjio-for-everything-jio/id1074964262",
     website: "https://www.jio.com/",
   },
   {
-    name: "MyJio: For Everything Jio",
+    name: "ESS 45 Zebra",
     description:
-      "MyJio is your all-in-one app to manage Jio services—telecom, entertainment, finance, shopping, health, and more—seamlessly in one place.",
-    image:
-      myJio,
-    tech: ["iOS", "Swift", "Postman", "Xcode", "Charles"],
-    appStore: "https://apps.apple.com/in/app/myjio-for-everything-jio/id1074964262",
-    website: "https://www.jio.com/",
+      "The New ESS app empowers team members with an intuitive design, refreshed dashboard, and smart tools to manage schedules, shifts, timecards, and availability—all in one place.",
+    image: ess,
+    tech: ["iOS", "Swift", "Postman", "Xcode", "Git", "Firebase"],
+    appStore: "https://apps.apple.com/cv/app/ess-45-zebra/id1531525719",
+    website:
+      "https://apps.apple.com/cv/developer/reflexis-systems-inc/id1094727299",
+  },
+  {
+    name: "SM 45 Zebra",
+    description:
+      "Zebra’s mobile-first platform empowers store associates and leaders to manage schedules, tasks, and real-time store operations directly from their phones or tablets.",
+    image: sm,
+    tech: ["iOS", "Swift", "Postman", "Xcode", "Git", "Firebase"],
+    appStore: "https://apps.apple.com/cv/app/sm-45-zebra/id1529403078",
+    website:
+      "https://apps.apple.com/cv/developer/reflexis-systems-inc/id1094727299",
+  },
+  {
+    name: "One App",
+    description:
+      "OneApp is a unified platform designed to replace multiple apps with a single product built on next-gen technology. It runs on one codebase, connects to each country’s backend via APIs, and is supported by centrally developed services.",
+    image: oneApp,
+    tech: ["iOS", "Swift", "Postman", "Xcode", "Git", "Firebase", "Charles"],
+    website: "https://dtdl.in/dtdl-tech",
+  },
+  {
+    name: "MTailor - Custom Clothing",
+    description:
+      "MTailor uses your phone to measure you 20% more accurately than a professional tailor—delivering perfectly fitting, fully customizable clothes with free shipping and returns.",
+    image: mtailor,
+    tech: ["iOS", "Swift", "Postman", "Xcode", "Git", "Firebase"],
+    appStore:
+      "https://apps.apple.com/in/app/mtailor-custom-clothing/id816042916",
+    website: "https://dtdl.in/dtdl-tech",
+  },
+  {
+    name: "2D Fun Resume",
+    description:
+      "This project is a creative 2D top-down interactive resume, designed as a fun and engaging way to showcase professional experience, skills, and achievements. Instead of a traditional CV, the resume is presented in a game-like format, where users navigate through different sections—such as education, work experience, projects, and skills—represented as interactive zones or levels. The goal is to make the resume not only informative but also memorable, demonstrating both technical creativity and storytelling ability",
+    image: funResume,
+    tech: ["HTML", "CSS", "JavaScript", "Game"],
+    demo: "https://ganesh2dportfolio.netlify.app/",
+  },
+  {
+    name: "My Portfolio",
+    description:
+      "Developed a React-based portfolio website featuring interactive UI, smooth navigation, and a professional presentation of my work and expertise.",
+    image: myResume,
+    tech: ["ReactJs", "TailwindCSS"],
+    demo: "https://ganesh2dportfolio.netlify.app/",
   },
 ];
 
