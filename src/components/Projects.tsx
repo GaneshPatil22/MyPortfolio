@@ -1,4 +1,7 @@
 import { useState } from "react";
+import eveuterLogo from "../assets/eventur.png";
+import jioMart from "../assets/jioMart.webp";
+import myJio from "../assets/MyJio.webp";
 
 interface Project {
   name: string;
@@ -7,34 +10,49 @@ interface Project {
   tech: string[];
   repo?: string; // optional
   demo?: string; // optional
+  website?: string; // optional
+  appStore?: string; // optional
 }
 
 const projects: Project[] = [
   {
-    name: "Project One",
-    description: "A cool project built with React and Tailwind.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv-p4Vie9oDM3GoLB9ACY9K2phdqxksmZUOw&s",
-    tech: ["React", "Tailwind", "TypeScript"],
-    repo: "https://github.com/yourusername/project-one",
-    demo: "https://yourprojectdemo.com",
-  },
-  {
-    name: "Project Two",
-    description: "A backend API built with Node.js and MongoDB.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPjlWKsNSA2ARasWdT_6tTMDkNXh8kY6ODQg&s",
-    tech: ["Node.js", "Express", "MongoDB"],
-    repo: "https://github.com/yourusername/project-two",
-  },
-  {
-    name: "Project Three",
+    name: "Eventur",
     description:
-      "A mobile app developed in Swift for iOS.A mobile app developed in Swift for iOS.A mobile app developed in Swift for iOS.A mobile app developed in Swift for iOS.A mobile app developed in Swift for iOS.",
+      "Eventur is an all-in-one event management platform that simplifies registration, check-in, audience engagement, and certification for in-person, virtual, and hybrid events.",
+    image: eveuterLogo,
+    tech: ["iOS", "Swift", "Postman", "Xcode"],
+    appStore: "https://apps.apple.com/us/app/eventur/id1174453957",
+    website: "https://www.eventur.com/",
+  },
+  {
+    name: "JioMart Online Shopping App",
+    description:
+      "JioMart delivers everything from groceries to fashion and electronics with free home delivery, no minimum order, and super-fast grocery delivery in just 10–30 minutes.",
+    image: jioMart,
+    tech: ["iOS", "Swift", "Postman", "Xcode", "Charles"],
+    appStore:
+      "https://apps.apple.com/in/app/jiomart-online-shopping-app/id1522085683",
+    website: "https://www.jiomart.com/",
+  },
+  {
+    name: "MyJio: For Everything Jio",
+    description:
+      "MyJio is your all-in-one app to manage Jio services—telecom, entertainment, finance, shopping, health, and more—seamlessly in one place.",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi9CfazuCmv2W8HARKd0r40_DweUnv7pO5hg&s",
-    tech: ["Swift", "iOS", "Xcode"],
-    demo: "https://yourprojectdemo.com",
+      myJio,
+    tech: ["iOS", "Swift", "Postman", "Xcode", "Charles"],
+    appStore: "https://apps.apple.com/in/app/myjio-for-everything-jio/id1074964262",
+    website: "https://www.jio.com/",
+  },
+  {
+    name: "MyJio: For Everything Jio",
+    description:
+      "MyJio is your all-in-one app to manage Jio services—telecom, entertainment, finance, shopping, health, and more—seamlessly in one place.",
+    image:
+      myJio,
+    tech: ["iOS", "Swift", "Postman", "Xcode", "Charles"],
+    appStore: "https://apps.apple.com/in/app/myjio-for-everything-jio/id1074964262",
+    website: "https://www.jio.com/",
   },
 ];
 
@@ -72,21 +90,22 @@ export default function Projects() {
       </div>
 
       {/* Projects */}
+      {/* //grid md:grid-cols-2 gap-8 */}
       <div className="space-y-12">
         {filteredProjects.length === 0 ? (
           <p className="text-center text-gray-500">No projects found.</p>
         ) : (
           filteredProjects.map((project, idx) => (
             <div
-              key={idx}
+              key={selectedTech + "-" + idx}
               className="grid md:grid-cols-2 gap-8 items-center bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-500 animate-fadeInUp"
             >
               {/* Left: Image */}
-              <div className="overflow-hidden">
+              <div className="flex items-center justify-center overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.name}
-                  className="w-full h-64 object-cover transform hover:scale-105 transition duration-500"
+                  className="max-w-full max-h-64 object-contain transform hover:scale-105 transition duration-500"
                 />
               </div>
 
@@ -129,6 +148,26 @@ export default function Projects() {
                       className="flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
                     >
                       Live Demo
+                    </a>
+                  )}
+                  {project.website && (
+                    <a
+                      href={project.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 text-center px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition"
+                    >
+                      Website
+                    </a>
+                  )}
+                  {project.appStore && (
+                    <a
+                      href={project.appStore}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                    >
+                      App Store
                     </a>
                   )}
                 </div>

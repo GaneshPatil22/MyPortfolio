@@ -9,8 +9,8 @@ module.exports = {
         "marquee-reverse-slow": "marquee-reverse 40s linear infinite",
         "marquee-reverse-medium": "marquee-reverse 25s linear infinite",
         "marquee-reverse-fast": "marquee-reverse 15s linear infinite",
-        "fadeInUp": "fadeInUp 5s ease-out forwards",
-        "fadeOutDown": "fadeOutDown 5s ease-in forwards",
+        "fadeInUp": "fadeInUp 0.5s ease-out forwards",
+        "fadeOutDown": "fadeOutDown 0.5s ease-in forwards",
       },
       keyframes: {
         marquee: {
