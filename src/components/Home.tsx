@@ -1,4 +1,4 @@
-import profilePic from "../assets/profile.jpg"; // add a small profile image in src/assets
+import profilePic from "/src/assets/profile.jpg"; // add a small profile image in src/assets
 import SocialLinks from "./SocialLinks";
 import Projects from "./Projects";
 import Contact from "./Contact";

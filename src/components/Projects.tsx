@@ -1,13 +1,13 @@
 import { useState } from "react";
-import eveuterLogo from "../assets/eventur.png";
-import jioMart from "../assets/jioMart.webp";
-import myJio from "../assets/MyJio.webp";
-import ess from "../assets/ess.webp";
-import sm from "../assets/sm.webp";
-import oneApp from "../assets/DTDL.png";
-import mtailor from "../assets/Mtailor.webp";
-import funResume from "../assets/funResume.png";
-import myResume from "../assets/myResume.png";
+import eveuterLogo from "/src/assets/eventur.png";
+import jioMart from "/src/assets/jioMart.webp";
+import myJio from "/src/assets/MyJio.webp";
+import ess from "/src/assets/ess.webp";
+import sm from "/src/assets/sm.webp";
+import oneApp from "/src/assets/DTDL.png";
+import mtailor from "/src/assets/Mtailor.webp";
+import funResume from "/src/assets/funResume.png";
+import myResume from "/src/assets/myResume.png";
 
 interface Project {
   name: string;
