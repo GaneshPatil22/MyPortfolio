@@ -102,7 +102,7 @@ const projects: Project[] = [
       "Developed a React-based portfolio website featuring interactive UI, smooth navigation, and a professional presentation of my work and expertise.",
     image: myResume,
     tech: ["ReactJs", "TailwindCSS"],
-    demo: "https://ganesh2dportfolio.netlify.app/",
+    demo: "/",
   },
 ];
 
