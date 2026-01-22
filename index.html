@@ -5,6 +5,23 @@
     <link rel="icon" type="image/svg+xml" href="/assets/profile.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ganesh Patil</title>
+    <!-- Critical CSS to prevent flash -->
+    <style>
+      html { background-color: #0f172a; }
+      html.light { background-color: #f8fafc; }
+    </style>
+    <script>
+      // Set theme immediately - dark is default
+      (function() {
+        var stored = localStorage.getItem('portfolio-theme');
+        if (stored === 'light') {
+          document.documentElement.classList.add('light');
+          document.documentElement.classList.remove('dark');
+        } else {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

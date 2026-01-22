@@ -29,28 +29,28 @@ const projects: Project[] = [
   {
     name: "Eventur",
     description:
-      "Eventur is an all-in-one event management platform that simplifies registration, check-in, audience engagement, and certification for in-person, virtual, and hybrid events.",
+      "All-in-one event management platform for registration, check-in, and engagement.",
     image: eveuterLogo,
-    tech: ["iOS", "Swift", "Postman", "Xcode", "Git", "Firebase"],
+    tech: ["iOS", "Swift", "Firebase"],
     appStore: "https://apps.apple.com/us/app/eventur/id1174453957",
     website: "https://www.eventur.com/",
   },
   {
-    name: "JioMart Online Shopping App",
+    name: "JioMart",
     description:
-      "JioMart delivers everything from groceries to fashion and electronics with free home delivery, no minimum order, and super-fast grocery delivery in just 10–30 minutes.",
+      "Grocery to fashion delivery app with super-fast 10-30 minute delivery.",
     image: jioMart,
-    tech: ["iOS", "Swift", "Postman", "Xcode", "Charles", "Git", "Firebase"],
+    tech: ["iOS", "Swift", "Firebase"],
     appStore:
       "https://apps.apple.com/in/app/jiomart-online-shopping-app/id1522085683",
     website: "https://www.jiomart.com/",
   },
   {
-    name: "MyJio: For Everything Jio",
+    name: "MyJio",
     description:
-      "MyJio is your all-in-one app to manage Jio services—telecom, entertainment, finance, shopping, health, and more—seamlessly in one place.",
+      "All-in-one app for Jio services—telecom, entertainment, finance, and more.",
     image: myJio,
-    tech: ["iOS", "Swift", "Postman", "Xcode", "Charles", "Git", "Firebase"],
+    tech: ["iOS", "Swift", "Firebase"],
     appStore:
       "https://apps.apple.com/in/app/myjio-for-everything-jio/id1074964262",
     website: "https://www.jio.com/",
@@ -58,9 +58,9 @@ const projects: Project[] = [
   {
     name: "ESS 45 Zebra",
     description:
-      "The New ESS app empowers team members with an intuitive design, refreshed dashboard, and smart tools to manage schedules, shifts, timecards, and availability—all in one place.",
+      "Employee self-service app for schedules, shifts, timecards, and availability.",
     image: ess,
-    tech: ["iOS", "Swift", "Postman", "Xcode", "Git", "Firebase"],
+    tech: ["iOS", "Swift", "Firebase"],
     appStore: "https://apps.apple.com/cv/app/ess-45-zebra/id1531525719",
     website:
       "https://apps.apple.com/cv/developer/reflexis-systems-inc/id1094727299",
@@ -68,9 +68,9 @@ const projects: Project[] = [
   {
     name: "SM 45 Zebra",
     description:
-      "Zebra's mobile-first platform empowers store associates and leaders to manage schedules, tasks, and real-time store operations directly from their phones or tablets.",
+      "Mobile-first platform for store operations, schedules, and task management.",
     image: sm,
-    tech: ["iOS", "Swift", "Postman", "Xcode", "Git", "Firebase"],
+    tech: ["iOS", "Swift", "Firebase"],
     appStore: "https://apps.apple.com/cv/app/sm-45-zebra/id1529403078",
     website:
       "https://apps.apple.com/cv/developer/reflexis-systems-inc/id1094727299",
@@ -78,17 +78,17 @@ const projects: Project[] = [
   {
     name: "One App",
     description:
-      "OneApp is a unified platform designed to replace multiple apps with a single product built on next-gen technology. It runs on one codebase, connects to each country's backend via APIs, and is supported by centrally developed services.",
+      "Unified platform replacing multiple apps with single codebase across countries.",
     image: oneApp,
-    tech: ["iOS", "Swift", "Postman", "Xcode", "Git", "Firebase", "Charles"],
+    tech: ["iOS", "Swift", "Firebase"],
     website: "https://dtdl.in/dtdl-tech",
   },
   {
-    name: "MTailor - Custom Clothing",
+    name: "MTailor",
     description:
-      "MTailor uses your phone to measure you 20% more accurately than a professional tailor—delivering perfectly fitting, fully customizable clothes with free shipping and returns.",
+      "Custom clothing app using phone measurements for perfect fit delivery.",
     image: mtailor,
-    tech: ["iOS", "Swift", "Postman", "Xcode", "Git", "Firebase"],
+    tech: ["iOS", "Swift", "Firebase"],
     appStore:
       "https://apps.apple.com/in/app/mtailor-custom-clothing/id816042916",
     website: "https://dtdl.in/dtdl-tech",
@@ -96,15 +96,15 @@ const projects: Project[] = [
   {
     name: "2D Fun Resume",
     description:
-      "This project is a creative 2D top-down interactive resume, designed as a fun and engaging way to showcase professional experience, skills, and achievements. Instead of a traditional CV, the resume is presented in a game-like format, where users navigate through different sections—such as education, work experience, projects, and skills—represented as interactive zones or levels. The goal is to make the resume not only informative but also memorable, demonstrating both technical creativity and storytelling ability",
+      "Creative 2D interactive resume in a game-like format with navigable sections.",
     image: funResume,
-    tech: ["HTML", "CSS", "JavaScript", "Game"],
+    tech: ["HTML", "CSS", "JavaScript"],
     demo: "https://ganesh2dportfolio.netlify.app/",
   },
   {
     name: "My Portfolio",
     description:
-      "Developed a React-based portfolio website featuring interactive UI, smooth navigation, and a professional presentation of my work and expertise.",
+      "React portfolio with interactive UI and smooth navigation.",
     image: myResume,
     tech: ["ReactJs", "TailwindCSS"],
     demo: "/",
@@ -112,25 +112,25 @@ const projects: Project[] = [
   {
     name: "AI Resume Analyzer",
     description:
-      "AI Resume Analyzer is a web-based tool that compares resumes with job descriptions to generate a match percentage. It identifies skill gaps, improves existing points, and creates ATS-friendly bullets using the Groq AI API. The application is fast, user-friendly, privacy-focused, and deployed on Netlify.",
+      "AI tool comparing resumes with job descriptions for ATS-friendly improvements.",
     image: resumeBuilder,
-    tech: ["ReactJs", "TailwindCSS", "AI", "Groq API"],
+    tech: ["ReactJs", "AI", "Groq API"],
     demo: "https://airesumeanalyserdemo.netlify.app/",
   },
   {
     name: "ThreadCart",
     description:
-      "ThreadCart is a live e-commerce platform for medical items, supporting both admin inventory management and customer ordering workflows. Users can browse products and place orders, while admins manage stock and orders. The application is production-ready, actively used by real customers, and built for reliability, performance, and scalability.",
+      "Live e-commerce platform for medical items with admin and customer workflows.",
     image: threadCart,
-    tech: ["ReactJs", "TailwindCSS", "E-commerce", "Stripe", "Analytics"],
+    tech: ["ReactJs", "Stripe", "Analytics"],
     demo: "https://threadcart.in/",
   },
   {
     name: "CoreLearnly",
     description:
-      "CoreLearnly is an online live coaching platform for DSA, featuring admin and student dashboards. Admins manage batches, sessions, and students, while students track classes, mark sessions as completed, view summaries, and access curated LeetCode practice links. The platform supports structured learning with real-time progress tracking.",
+      "Online DSA coaching platform with admin/student dashboards and progress tracking.",
     image: corelearnly,
-    tech: ["ReactJs", "TailwindCSS", "E-learning", "Analytics"],
+    tech: ["ReactJs", "E-learning"],
     demo: "https://corelearnly.com/",
   },
 ];
@@ -164,7 +164,7 @@ export default function Projects() {
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
               selectedTech === tech
                 ? "bg-primary-600 text-white shadow-lg shadow-primary-500/25"
-                : "bg-white text-slate-600 border border-slate-200 hover:border-primary-300 hover:text-primary-600"
+                : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-primary-300 dark:hover:border-primary-600 hover:text-primary-600 dark:hover:text-primary-400"
             }`}
           >
             {tech}
@@ -173,90 +173,88 @@ export default function Projects() {
       </div>
 
       {/* Projects Grid */}
-      <div className="space-y-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProjects.length === 0 ? (
-          <p className="text-center text-slate-500">No projects found.</p>
+          <p className="text-center text-slate-500 dark:text-slate-400 col-span-full">No projects found.</p>
         ) : (
           filteredProjects.map((project, idx) => (
             <div
               key={selectedTech + "-" + idx}
-              className="card-bordered overflow-hidden animate-fadeInUp"
+              className="card-bordered overflow-hidden animate-fadeInUp group flex flex-col"
             >
-              <div className="grid md:grid-cols-2 gap-0">
-                {/* Image */}
-                <div className="bg-gradient-to-br from-slate-100 to-slate-50 flex items-center justify-center p-8 min-h-[280px]">
-                  <img
-                    src={project.image}
-                    alt={project.name}
-                    className="max-w-full max-h-56 object-contain transform hover:scale-105 transition-transform duration-500"
-                  />
+              {/* Image */}
+              <div className="bg-gradient-to-br from-slate-100 to-slate-50 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center p-6 h-48">
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="max-w-full max-h-full object-contain transform group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="p-5 flex flex-col flex-grow">
+                <h2 className="text-lg font-bold text-slate-800 dark:text-white mb-2">
+                  {project.name}
+                </h2>
+                <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 flex-grow line-clamp-2">
+                  {project.description}
+                </p>
+
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {project.tech.map((tech, i) => (
+                    <span key={i} className="px-2 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-full text-xs font-medium">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
 
-                {/* Content */}
-                <div className="p-8 flex flex-col">
-                  <h2 className="text-2xl font-bold text-slate-800 mb-3">
-                    {project.name}
-                  </h2>
-                  <p className="text-slate-600 mb-6 flex-grow leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tech.map((tech, i) => (
-                      <span key={i} className="tech-badge">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex flex-wrap gap-3">
-                    {project.repo && (
-                      <a
-                        href={project.repo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-secondary text-sm"
-                      >
-                        <FaGithub />
-                        GitHub
-                      </a>
-                    )}
-                    {project.demo && (
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-primary text-sm"
-                      >
-                        <HiCode />
-                        Live Demo
-                      </a>
-                    )}
-                    {project.website && (
-                      <a
-                        href={project.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-outline text-sm"
-                      >
-                        <HiExternalLink />
-                        Website
-                      </a>
-                    )}
-                    {project.appStore && (
-                      <a
-                        href={project.appStore}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-primary text-sm"
-                      >
-                        <FaAppStoreIos />
-                        App Store
-                      </a>
-                    )}
-                  </div>
+                {/* Action Buttons */}
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {project.repo && (
+                    <a
+                      href={project.repo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 px-3 py-1.5 bg-slate-800 dark:bg-slate-600 text-white text-sm rounded-lg hover:bg-slate-900 dark:hover:bg-slate-500 transition-colors"
+                    >
+                      <FaGithub size={14} />
+                      Code
+                    </a>
+                  )}
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 px-3 py-1.5 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700 transition-colors"
+                    >
+                      <HiCode size={14} />
+                      Demo
+                    </a>
+                  )}
+                  {project.website && (
+                    <a
+                      href={project.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 px-3 py-1.5 border border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300 text-sm rounded-lg hover:border-primary-300 dark:hover:border-primary-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                    >
+                      <HiExternalLink size={14} />
+                      Site
+                    </a>
+                  )}
+                  {project.appStore && (
+                    <a
+                      href={project.appStore}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 px-3 py-1.5 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700 transition-colors"
+                    >
+                      <FaAppStoreIos size={14} />
+                      App
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

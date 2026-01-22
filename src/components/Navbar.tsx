@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { scroller } from "react-scroll";
-import { HiMenuAlt3, HiX } from "react-icons/hi";
+import { HiMenuAlt3, HiX, HiSun, HiMoon } from "react-icons/hi";
+import { useTheme } from "../context/ThemeContext";
 
 const NAV_ITEMS = [
   { id: "hero", label: "Home" },
@@ -14,6 +15,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,29 +68,49 @@ export default function Navbar() {
             <button
               key={item.id}
               onClick={() => handleNavClick(item.id)}
-              className="px-4 py-2 text-slate-600 hover:text-primary-600 font-medium rounded-lg hover:bg-primary-50 transition-all duration-200"
+              className="px-4 py-2 text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium rounded-lg hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all duration-200"
             >
               {item.label}
             </button>
           ))}
+
+          {/* Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            className="p-2.5 ml-2 bg-slate-100 dark:bg-slate-800 text-amber-500 dark:text-amber-400 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-xl border border-slate-200 dark:border-slate-700 transition-all duration-300 hover:scale-105"
+            aria-label="Toggle theme"
+            title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+          >
+            {theme === "light" ? <HiMoon size={20} /> : <HiSun size={20} />}
+          </button>
+
           <a
             href="/assets/Ganesh_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-4 btn-primary text-sm"
+            className="ml-2 btn-primary text-sm"
           >
             Resume
           </a>
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 text-slate-700 hover:text-primary-600 transition-colors"
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <HiX size={28} /> : <HiMenuAlt3 size={28} />}
-        </button>
+        <div className="md:hidden flex items-center gap-3">
+          <button
+            onClick={toggleTheme}
+            className="p-2.5 bg-slate-100 dark:bg-slate-800 text-amber-500 dark:text-amber-400 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-xl border border-slate-200 dark:border-slate-700 transition-all duration-300"
+            aria-label="Toggle theme"
+          >
+            {theme === "light" ? <HiMoon size={20} /> : <HiSun size={20} />}
+          </button>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="p-2 text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <HiX size={28} /> : <HiMenuAlt3 size={28} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -102,7 +124,7 @@ export default function Navbar() {
             <button
               key={item.id}
               onClick={() => handleNavClick(item.id)}
-              className="block w-full text-left px-4 py-3 text-slate-700 hover:text-primary-600 hover:bg-primary-50 rounded-xl font-medium transition-all"
+              className="block w-full text-left px-4 py-3 text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-xl font-medium transition-all"
             >
               {item.label}
             </button>

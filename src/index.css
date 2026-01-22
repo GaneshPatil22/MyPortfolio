@@ -8,11 +8,20 @@
   }
 
   body {
-    @apply bg-slate-50 text-slate-800 antialiased;
+    @apply bg-slate-50 text-slate-800 antialiased transition-colors duration-300;
+  }
+
+  .dark body,
+  html.dark body {
+    @apply bg-slate-900 text-slate-200;
   }
 
   ::selection {
     @apply bg-primary-500/20 text-primary-900;
+  }
+
+  .dark ::selection {
+    @apply bg-primary-500/30 text-primary-200;
   }
 }
 
@@ -21,20 +30,24 @@
     @apply bg-gradient-to-r from-primary-600 via-purple-600 to-primary-600 bg-clip-text text-transparent;
   }
 
+  .dark .gradient-text {
+    @apply from-primary-400 via-purple-400 to-primary-400;
+  }
+
   .section-heading {
-    @apply text-3xl md:text-4xl font-bold text-slate-800 mb-2;
+    @apply text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-2;
   }
 
   .section-subheading {
-    @apply text-slate-500 text-lg mb-8;
+    @apply text-slate-500 dark:text-slate-400 text-lg mb-8;
   }
 
   .card {
-    @apply bg-white rounded-2xl shadow-card transition-all duration-300 hover:shadow-card-hover;
+    @apply bg-white dark:bg-slate-800 rounded-2xl shadow-card transition-all duration-300 hover:shadow-card-hover;
   }
 
   .card-bordered {
-    @apply card border border-slate-100;
+    @apply card border border-slate-100 dark:border-slate-700;
   }
 
   .btn-primary {
@@ -42,22 +55,29 @@
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-800 text-white font-medium rounded-xl hover:bg-slate-900 transition-all duration-300;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-800 dark:bg-slate-700 text-white font-medium rounded-xl hover:bg-slate-900 dark:hover:bg-slate-600 transition-all duration-300;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-slate-200 text-slate-700 font-medium rounded-xl hover:border-primary-500 hover:text-primary-600 transition-all duration-300;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-300 font-medium rounded-xl hover:border-primary-500 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300;
   }
 
   .input-field {
-    @apply w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300;
+    @apply w-full px-4 py-3 bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-800 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300;
   }
 
   .tech-badge {
-    @apply px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm font-medium;
+    @apply px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full text-sm font-medium;
   }
 
   .glass {
-    @apply bg-white/80 backdrop-blur-md;
+    @apply bg-white/80 dark:bg-slate-900/80 backdrop-blur-md;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }

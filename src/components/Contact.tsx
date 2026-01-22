@@ -63,32 +63,32 @@ export default function Contact() {
         </p>
       </div>
 
-      <div className="card p-8 md:p-12 max-w-xl mx-auto border border-slate-100">
+      <div className="card p-8 md:p-12 max-w-xl mx-auto border border-slate-100 dark:border-slate-700">
         {status === "success" ? (
           <div className="text-center py-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 text-green-600 rounded-full mb-4">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full mb-4">
               <HiCheckCircle size={40} />
             </div>
-            <h3 className="text-2xl font-bold text-slate-800 mb-2">Message Sent!</h3>
-            <p className="text-slate-600">
+            <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-2">Message Sent!</h3>
+            <p className="text-slate-600 dark:text-slate-400">
               Thank you for reaching out. I'll get back to you soon.
             </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
             {error && (
-              <div className="flex items-center gap-2 p-4 bg-red-50 text-red-600 rounded-xl">
+              <div className="flex items-center gap-2 p-4 bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-xl">
                 <HiExclamationCircle size={20} />
                 <span>{error}</span>
               </div>
             )}
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Your Name
               </label>
               <div className="relative">
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500">
                   <HiUser size={20} />
                 </span>
                 <input
@@ -102,11 +102,11 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Email Address
               </label>
               <div className="relative">
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500">
                   <HiMail size={20} />
                 </span>
                 <input
@@ -120,7 +120,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Message
               </label>
               <textarea
