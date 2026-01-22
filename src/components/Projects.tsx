@@ -8,6 +8,9 @@ import oneApp from "/assets/DTDL.png";
 import mtailor from "/assets/Mtailor.webp";
 import funResume from "/assets/FunResume.png";
 import myResume from "/assets/MyResume.png";
+import resumeBuilder from "/assets/resumeBuilder.png";
+import threadCart from "/assets/ThreadCart.png";
+import corelearnly from "/assets/Corelearnly.png";
 
 interface Project {
   name: string;
@@ -103,6 +106,30 @@ const projects: Project[] = [
     image: myResume,
     tech: ["ReactJs", "TailwindCSS"],
     demo: "/",
+  },
+  {
+    name: "AI Resume Analyzer",
+    description:
+      "AI Resume Analyzer is a web-based tool that compares resumes with job descriptions to generate a match percentage. It identifies skill gaps, improves existing points, and creates ATS-friendly bullets using the Groq AI API. The application is fast, user-friendly, privacy-focused, and deployed on Netlify.",
+    image: resumeBuilder,
+    tech: ["ReactJs", "TailwindCSS", "AI", "Groq API"],
+    demo: "https://airesumeanalyserdemo.netlify.app/",
+  },
+  {
+    name: "ThreadCart",
+    description:
+      "ThreadCart is a live e-commerce platform for medical items, supporting both admin inventory management and customer ordering workflows. Users can browse products and place orders, while admins manage stock and orders. The application is production-ready, actively used by real customers, and built for reliability, performance, and scalability.",
+    image: threadCart,
+    tech: ["ReactJs", "TailwindCSS", "E-commerce", "Stripe", "Analytics"],
+    demo: "https://threadcart.in/",
+  },
+  {
+    name: "CoreLearnly",
+    description:
+      "CoreLearnly is an online live coaching platform for DSA, featuring admin and student dashboards. Admins manage batches, sessions, and students, while students track classes, mark sessions as completed, view summaries, and access curated LeetCode practice links. The platform supports structured learning with real-time progress tracking.",
+    image: corelearnly,
+    tech: ["ReactJs", "TailwindCSS", "E-learning", "Analytics"],
+    demo: "https://corelearnly.com/",
   },
 ];
 
