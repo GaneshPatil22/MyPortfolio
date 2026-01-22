@@ -18,7 +18,7 @@ const TYPING_WORDS = [
 ];
 
 const STATS = [
-  { value: "7.5+", label: "Years Experience", icon: HiBriefcase, color: "from-blue-500 to-cyan-500" },
+  { value: "8.5+", label: "Years Experience", icon: HiBriefcase, color: "from-blue-500 to-cyan-500" },
   { value: "12+", label: "Projects Delivered", icon: HiCode, color: "from-purple-500 to-pink-500" },
   { value: "5+", label: "Technologies", icon: HiLightningBolt, color: "from-orange-500 to-red-500" },
   { value: "∞", label: "Learning Spirit", icon: HiAcademicCap, color: "from-green-500 to-emerald-500" },
@@ -69,7 +69,7 @@ export default function Home() {
 
               {/* Description */}
               <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl leading-relaxed">
-                With <span className="text-primary-500 font-semibold">7.5+ years</span> of experience crafting
+                With <span className="text-primary-500 font-semibold">8.5+ years</span> of experience crafting
                 high-quality iOS apps and exploring full-stack development. I love solving complex problems
                 and building scalable systems that make a difference.
               </p>
@@ -201,7 +201,7 @@ export default function Home() {
                 </h2>
                 <div className="w-24 h-1.5 bg-gradient-to-r from-primary-500 via-purple-500 to-pink-500 rounded-full mb-6" />
                 <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg mb-4">
-                  I'm a passionate iOS developer with <span className="text-primary-500 font-semibold">7.5+ years</span> of experience building apps in Swift, SwiftUI, and Objective-C. I love diving into full-stack web development — React, Node.js, MongoDB, and more.
+                  I'm a passionate iOS developer with <span className="text-primary-500 font-semibold">8.5+ years</span> of experience building apps in Swift, SwiftUI, and Objective-C. I love diving into full-stack web development — React, Node.js, MongoDB, and more.
                 </p>
                 <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
                   When I'm not coding, you'll find me exploring AI, creating games in Unity, solving puzzles, or battling bosses in Souls-like games. Always learning, always curious! 🎮
