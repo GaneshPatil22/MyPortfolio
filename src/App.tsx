@@ -4,25 +4,30 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
-// import Blogs from "./components/Blogs";
-// import BlogDetail from "./components/BlogDetail";
-// import AddBlog from "./components/AddBlog";
+import ScrollProgress from "./components/ScrollProgress";
+import AnimatedBackground from "./components/AnimatedBackground";
+import CursorGlow from "./components/CursorGlow";
 
 export default function App() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen relative">
+      {/* Background Effects */}
+      <AnimatedBackground />
+      <CursorGlow />
+      <ScrollProgress />
+
+      {/* Navigation */}
       <Navbar />
 
-      <div className="flex-grow">
+      {/* Main Content */}
+      <main className="flex-grow relative z-10">
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/blogs" element={<Blogs />} /> */}
           <Route path="*" element={<NotFound />} />
-          {/* <Route path="/blogs/:id" element={<BlogDetail />} />
-          <Route path="/blogs/add" element={<AddBlog />} /> */}
         </Routes>
-      </div>
+      </main>
 
+      {/* Footer */}
       <Footer />
       <ScrollToTop />
     </div>
