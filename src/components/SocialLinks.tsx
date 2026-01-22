@@ -2,54 +2,48 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 
 interface Props {
-  theme?: "light" | "dark"; // optional prop, defaults to light
+  theme?: "light" | "dark";
 }
 
-export default function SocialLinks({ theme = "light" }: Props) {
-  const baseColor =
-    theme === "light"
-      ? "text-gray-600 hover:text-black"
-      : "text-gray-400 hover:text-white";
+const SOCIAL_LINKS = [
+  {
+    href: "https://github.com/GaneshPatil22",
+    icon: FaGithub,
+    label: "GitHub",
+    hoverColor: "hover:text-slate-900",
+  },
+  {
+    href: "https://www.linkedin.com/in/ganesh-patil-2b3431119/",
+    icon: FaLinkedin,
+    label: "LinkedIn",
+    hoverColor: "hover:text-blue-600",
+  },
+  {
+    href: "https://leetcode.com/u/Sonic22/",
+    icon: SiLeetcode,
+    label: "LeetCode",
+    hoverColor: "hover:text-orange-500",
+  },
+];
 
-  const size = "text-2xl transition";
+export default function SocialLinks({ theme = "light" }: Props) {
+  const baseColor = theme === "light" ? "text-slate-500" : "text-slate-400";
+  const darkHover = theme === "dark" ? "hover:text-white" : "";
 
   return (
-    <div className="p-3 flex space-x-6">
-      <a
-        href="https://github.com/GaneshPatil22"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`${baseColor} ${size}`}
-      >
-        <FaGithub />
-      </a>
-
-      <a
-        href="https://www.linkedin.com/in/ganesh-patil-2b3431119/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`${baseColor} ${size} hover:text-blue-500`}
-      >
-        <FaLinkedin />
-      </a>
-
-      {/* <a
-        href="https://www.youtube.com/@yourchannel"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`${baseColor} ${size} hover:text-red-500`}
-      >
-        <FaYoutube />
-      </a> */}
-
-      <a
-        href="https://leetcode.com/u/Sonic22/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`${baseColor} ${size} hover:text-orange-500`}
-      >
-        <SiLeetcode />
-      </a>
+    <div className="flex items-center gap-4">
+      {SOCIAL_LINKS.map((link) => (
+        <a
+          key={link.label}
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${baseColor} ${darkHover || link.hoverColor} text-2xl transition-all duration-300 hover:scale-110`}
+          aria-label={link.label}
+        >
+          <link.icon />
+        </a>
+      ))}
     </div>
   );
 }

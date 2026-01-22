@@ -3,6 +3,7 @@ import NotFound from "./components/NotFound";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 // import Blogs from "./components/Blogs";
 // import BlogDetail from "./components/BlogDetail";
 // import AddBlog from "./components/AddBlog";
@@ -23,6 +24,7 @@ export default function App() {
       </div>
 
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
