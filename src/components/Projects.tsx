@@ -175,14 +175,19 @@ function ProjectCard({ project, index }: ProjectCardProps) {
     setIsHovered(false);
   };
 
+  const cardLink = project.website || project.demo || project.appStore;
+
   return (
     <div
       ref={cardRef}
-      className="perspective group"
+      className="perspective group cursor-pointer"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
       style={{ animationDelay: `${index * 100}ms` }}
+      onClick={() => {
+        if (cardLink) window.open(cardLink, "_blank", "noopener,noreferrer");
+      }}
     >
       <div
         className="relative h-full preserve-3d transition-transform duration-200 ease-out"
@@ -266,7 +271,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2" onClick={(e) => e.stopPropagation()}>
                 {project.repo && (
                   <a
                     href={project.repo}

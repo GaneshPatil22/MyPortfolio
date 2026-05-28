@@ -49,7 +49,7 @@ export default function Footer() {
               Quick Links
             </h4>
             <div className="flex flex-col gap-3">
-              {["Home", "Projects", "Contact"].map((link) => (
+              {["Home", "Experience", "Projects", "Contact"].map((link) => (
                 <button
                   key={link}
                   onClick={() => {
@@ -61,6 +61,14 @@ export default function Footer() {
                   {link}
                 </button>
               ))}
+              <a
+                href="https://corelearnly.com/blog"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-primary-400 transition-colors duration-300"
+              >
+                Blog
+              </a>
             </div>
           </div>
 

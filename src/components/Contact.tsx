@@ -86,10 +86,10 @@ export default function Contact() {
               <div>
                 <h3 className="text-lg font-semibold text-slate-800 dark:text-white mb-1">Email Me</h3>
                 <a
-                  href="mailto:ganeshp1206@gmail.com"
+                  href="mailto:ganeshpatil0422@gmail.com"
                   className="text-slate-500 dark:text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
                 >
-                  ganeshp1206@gmail.com
+                  ganeshpatil0422@gmail.com
                 </a>
               </div>
             </div>

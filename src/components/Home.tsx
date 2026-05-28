@@ -3,9 +3,12 @@ import SocialLinks from "./SocialLinks";
 import Projects from "./Projects";
 import Contact from "./Contact";
 import TechStack from "./TechStack";
+import Experience from "./Experience";
+import GitHubStats from "./GitHubStats";
+import AnimatedSection from "./AnimatedSection";
 import { Link as ScrollLink } from "react-scroll";
 import { useTypingEffect } from "../hooks/useTypingEffect";
-import { HiArrowDown, HiSparkles, HiCode, HiBriefcase, HiLightningBolt, HiAcademicCap } from "react-icons/hi";
+import { HiArrowDown, HiSparkles, HiCode, HiBriefcase, HiLightningBolt, HiAcademicCap, HiDownload, HiExternalLink } from "react-icons/hi";
 import { useEffect, useState } from "react";
 
 const TYPING_WORDS = [
@@ -75,7 +78,7 @@ export default function Home() {
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-center gap-4 mb-10">
+              <div className="flex flex-col sm:flex-row items-center gap-4 mb-6">
                 <ScrollLink
                   to="projects"
                   smooth={true}
@@ -101,6 +104,27 @@ export default function Home() {
                     <span>Let's Connect</span>
                   </button>
                 </ScrollLink>
+              </div>
+
+              {/* Resume Download CTA */}
+              <div className="flex flex-col sm:flex-row items-center gap-4 mb-10">
+                <a
+                  href="/assets/Ganesh_Resume.pdf"
+                  download
+                  className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-primary-600 dark:text-primary-400 border-2 border-primary-500/30 rounded-xl hover:bg-primary-500/10 hover:border-primary-500/50 transition-all duration-300 hover:scale-105"
+                >
+                  <HiDownload className="text-lg" />
+                  Download Resume
+                </a>
+                <a
+                  href="https://corelearnly.com/blog"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-purple-600 dark:text-purple-400 border-2 border-purple-500/30 rounded-xl hover:bg-purple-500/10 hover:border-purple-500/50 transition-all duration-300 hover:scale-105"
+                >
+                  <HiExternalLink className="text-lg" />
+                  Read My Blog
+                </a>
               </div>
 
               {/* Social Links */}
@@ -159,83 +183,142 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section id="stats" className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {STATS.map((stat, idx) => (
-              <div
-                key={idx}
-                className="group card-glass p-6 text-center hover:scale-105 transition-all duration-500"
-                style={{ animationDelay: `${idx * 100}ms` }}
-              >
-                <div className={`inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br ${stat.color} rounded-2xl mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
-                  <stat.icon className="text-white text-2xl" />
-                </div>
-                <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-slate-500 dark:text-slate-400 text-sm font-medium">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="card-glass p-8 md:p-12 glow-box">
-            <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="md:w-1/3 flex justify-center">
-                <div className="w-48 h-48 rounded-3xl bg-gradient-to-br from-primary-500 to-purple-600 p-1 rotate-3 hover:rotate-0 transition-transform duration-500">
-                  <div className="w-full h-full bg-slate-50 dark:bg-slate-900 rounded-3xl flex items-center justify-center">
-                    <span className="text-7xl">🧑‍💻</span>
+      <AnimatedSection>
+        <section id="stats" className="py-20 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {STATS.map((stat, idx) => (
+                <div
+                  key={idx}
+                  className="group card-glass p-6 text-center hover:scale-105 transition-all duration-500"
+                  style={{ animationDelay: `${idx * 100}ms` }}
+                >
+                  <div className={`inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br ${stat.color} rounded-2xl mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+                    <stat.icon className="text-white text-2xl" />
+                  </div>
+                  <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
+                    {stat.value}
+                  </div>
+                  <div className="text-slate-500 dark:text-slate-400 text-sm font-medium">
+                    {stat.label}
                   </div>
                 </div>
-              </div>
-              <div className="md:w-2/3">
-                <h2 className="section-heading">
-                  About <span className="gradient-text">Me</span>
-                </h2>
-                <div className="w-24 h-1.5 bg-gradient-to-r from-primary-500 via-purple-500 to-pink-500 rounded-full mb-6" />
-                <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg mb-4">
-                  I'm a passionate iOS developer with <span className="text-primary-500 font-semibold">8.5+ years</span> of experience building apps in Swift, SwiftUI, and Objective-C. I love diving into full-stack web development — React, Node.js, MongoDB, and more.
-                </p>
-                <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
-                  When I'm not coding, you'll find me exploring AI, creating games in Unity, solving puzzles, or battling bosses in Souls-like games. Always learning, always curious! 🎮
-                </p>
+              ))}
+            </div>
+          </div>
+        </section>
+      </AnimatedSection>
+
+      {/* About Section */}
+      <AnimatedSection>
+        <section className="py-20 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="card-glass p-8 md:p-12 glow-box">
+              <div className="flex flex-col md:flex-row gap-8 items-center">
+                <div className="md:w-1/3 flex justify-center">
+                  <div className="w-48 h-48 rounded-3xl bg-gradient-to-br from-primary-500 to-purple-600 p-1 rotate-3 hover:rotate-0 transition-transform duration-500">
+                    <div className="w-full h-full bg-slate-50 dark:bg-slate-900 rounded-3xl flex items-center justify-center">
+                      <span className="text-7xl">🧑‍💻</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="md:w-2/3">
+                  <h2 className="section-heading">
+                    About <span className="gradient-text">Me</span>
+                  </h2>
+                  <div className="w-24 h-1.5 bg-gradient-to-r from-primary-500 via-purple-500 to-pink-500 rounded-full mb-6" />
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg mb-4">
+                    I'm a passionate iOS developer with <span className="text-primary-500 font-semibold">8.5+ years</span> of experience building apps in Swift, SwiftUI, and Objective-C. I love diving into full-stack web development — React, Node.js, MongoDB, and more.
+                  </p>
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
+                    When I'm not coding, you'll find me exploring AI, creating games in Unity, solving puzzles, or battling bosses in Souls-like games. Always learning, always curious! 🎮
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </AnimatedSection>
 
       {/* Tech Stack */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="section-heading">
-              My <span className="gradient-text">Tech Stack</span>
-            </h2>
-            <p className="section-subheading">
-              Technologies I love working with
-            </p>
+      <AnimatedSection>
+        <section className="py-20 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="section-heading">
+                My <span className="gradient-text">Tech Stack</span>
+              </h2>
+              <p className="section-subheading">
+                Technologies I love working with
+              </p>
+            </div>
+            <TechStack />
           </div>
-          <TechStack />
-        </div>
-      </section>
+        </section>
+      </AnimatedSection>
+
+      {/* Experience Timeline */}
+      <AnimatedSection>
+        <section id="experience" className="py-20">
+          <Experience />
+        </section>
+      </AnimatedSection>
 
       {/* Projects */}
-      <section id="projects" className="py-20">
-        <Projects />
-      </section>
+      <AnimatedSection>
+        <section id="projects" className="py-20">
+          <Projects />
+        </section>
+      </AnimatedSection>
+
+      {/* GitHub & LeetCode Stats */}
+      <AnimatedSection>
+        <section id="stats-dev" className="py-20">
+          <GitHubStats />
+        </section>
+      </AnimatedSection>
+
+      {/* Blog CTA Section */}
+      <AnimatedSection>
+        <section className="py-20 px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="relative overflow-hidden card-glass p-8 md:p-12 glow-box text-center">
+              <div className="absolute -top-20 -right-20 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl" />
+              <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-primary-500/10 rounded-full blur-3xl" />
+
+              <div className="relative">
+                <span className="text-5xl mb-6 block">📝</span>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                  <span className="text-slate-800 dark:text-white">I Write About </span>
+                  <span className="gradient-text-animated">Tech & Engineering</span>
+                </h2>
+                <p className="text-slate-500 dark:text-slate-400 text-lg max-w-xl mx-auto mb-8">
+                  Articles on DSA, System Design, iOS development, AI productivity, and career growth for engineers.
+                </p>
+                <a
+                  href="https://corelearnly.com/blog"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative inline-flex items-center gap-2 px-8 py-4 font-semibold text-white rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-primary-600 to-pink-600 bg-[length:200%_auto] animate-gradient-x" />
+                  <span className="relative z-10 flex items-center gap-2">
+                    <HiExternalLink className="group-hover:rotate-12 transition-transform" />
+                    Visit My Blog
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </AnimatedSection>
 
       {/* Contact */}
-      <section id="contact" className="py-20">
-        <Contact />
-      </section>
+      <AnimatedSection>
+        <section id="contact" className="py-20">
+          <Contact />
+        </section>
+      </AnimatedSection>
     </div>
   );
 }

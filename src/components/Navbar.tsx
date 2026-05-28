@@ -6,6 +6,7 @@ import { useTheme } from "../context/ThemeContext";
 
 const NAV_ITEMS = [
   { id: "hero", label: "Home" },
+  { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },
 ];
