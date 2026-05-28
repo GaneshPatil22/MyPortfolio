@@ -86,30 +86,30 @@ export default function GitHubStats() {
   const totalLangCount = githubData?.topLanguages.reduce((sum, l) => sum + l.count, 0) || 1;
 
   return (
-    <div ref={ref} className="px-6 py-12 max-w-6xl mx-auto">
+    <div ref={ref} className="px-6 py-8 max-w-5xl mx-auto">
       {/* Section Header */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-16"
+        transition={{ duration: 0.5 }}
+        className="text-center mb-10"
       >
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary-500/10 to-purple-500/10 border border-primary-500/20 rounded-full mb-6">
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary-500/10 to-purple-500/10 border border-primary-500/20 rounded-full mb-4">
           <HiTrendingUp className="text-primary-500" />
           <span className="text-primary-600 dark:text-primary-400 text-sm font-medium">
             Coding Activity
           </span>
         </div>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
           <span className="text-slate-800 dark:text-white">Dev </span>
           <span className="gradient-text-animated">Stats</span>
         </h2>
-        <p className="text-slate-500 dark:text-slate-400 text-lg md:text-xl max-w-2xl mx-auto">
+        <p className="text-slate-500 dark:text-slate-400 text-base max-w-xl mx-auto">
           My GitHub contributions and LeetCode progress
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-6">
         {/* GitHub Stats */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -117,11 +117,11 @@ export default function GitHubStats() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="space-y-6"
         >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 bg-gradient-to-br from-slate-700 to-slate-900 rounded-xl flex items-center justify-center">
-              <FaGithub className="text-white text-xl" />
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-8 h-8 bg-gradient-to-br from-slate-700 to-slate-900 rounded-lg flex items-center justify-center">
+              <FaGithub className="text-white text-base" />
             </div>
-            <h3 className="text-xl font-bold text-slate-800 dark:text-white">GitHub</h3>
+            <h3 className="text-lg font-bold text-slate-800 dark:text-white">GitHub</h3>
             <a
               href={`https://github.com/${GITHUB_USERNAME}`}
               target="_blank"
@@ -134,25 +134,25 @@ export default function GitHubStats() {
 
           {/* GitHub Stats Grid */}
           {githubData && (
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-4 gap-3">
               {[
-                { icon: HiCollection, label: "Repositories", value: githubData.publicRepos, gradient: "from-blue-500 to-cyan-500" },
-                { icon: FaStar, label: "Stars Earned", value: githubData.stars, gradient: "from-amber-400 to-orange-500" },
+                { icon: HiCollection, label: "Repos", value: githubData.publicRepos, gradient: "from-blue-500 to-cyan-500" },
+                { icon: FaStar, label: "Stars", value: githubData.stars, gradient: "from-amber-400 to-orange-500" },
                 { icon: HiUsers, label: "Followers", value: githubData.followers, gradient: "from-purple-500 to-pink-500" },
                 { icon: FaCodeBranch, label: "Forks", value: githubData.forks, gradient: "from-green-500 to-emerald-500" },
               ].map((stat, idx) => (
                 <div
                   key={stat.label}
-                  className="group card-glass p-5 text-center hover:scale-105 transition-all duration-300"
+                  className="group card-glass p-3 text-center hover:scale-105 transition-all duration-300"
                   style={{ animationDelay: `${idx * 100}ms` }}
                 >
-                  <div className={`inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br ${stat.gradient} rounded-xl mb-3 shadow-md group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
-                    <stat.icon className="text-white text-lg" />
+                  <div className={`inline-flex items-center justify-center w-8 h-8 bg-gradient-to-br ${stat.gradient} rounded-lg mb-2 shadow-sm group-hover:scale-110 transition-all duration-300`}>
+                    <stat.icon className="text-white text-sm" />
                   </div>
-                  <div className="text-2xl font-bold text-slate-800 dark:text-white mb-1">
+                  <div className="text-lg font-bold text-slate-800 dark:text-white">
                     {stat.value}
                   </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                  <div className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">
                     {stat.label}
                   </div>
                 </div>
@@ -162,14 +162,14 @@ export default function GitHubStats() {
 
           {/* Top Languages */}
           {githubData && (
-            <div className="card-glass p-6 glow-box">
-              <div className="flex items-center gap-2 mb-4">
-                <HiCode className="text-primary-500" />
-                <h4 className="font-semibold text-slate-800 dark:text-white">Top Languages</h4>
+            <div className="card-glass p-4">
+              <div className="flex items-center gap-2 mb-3">
+                <HiCode className="text-primary-500 text-sm" />
+                <h4 className="font-semibold text-sm text-slate-800 dark:text-white">Top Languages</h4>
               </div>
 
               {/* Language bar */}
-              <div className="flex rounded-full overflow-hidden h-3 mb-4">
+              <div className="flex rounded-full overflow-hidden h-2.5 mb-3">
                 {githubData.topLanguages.map((lang) => (
                   <div
                     key={lang.name}
@@ -184,11 +184,11 @@ export default function GitHubStats() {
               </div>
 
               {/* Language labels */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2">
                 {githubData.topLanguages.map((lang) => (
-                  <div key={lang.name} className="flex items-center gap-1.5 text-sm">
+                  <div key={lang.name} className="flex items-center gap-1 text-xs">
                     <span
-                      className="w-3 h-3 rounded-full shrink-0"
+                      className="w-2.5 h-2.5 rounded-full shrink-0"
                       style={{ backgroundColor: lang.color }}
                     />
                     <span className="text-slate-600 dark:text-slate-300 font-medium">{lang.name}</span>
@@ -202,19 +202,19 @@ export default function GitHubStats() {
           )}
 
           {/* GitHub Streak */}
-          <div className="card-glass p-2 glow-box overflow-hidden rounded-2xl">
+          <div className="card-glass p-1.5 overflow-hidden rounded-xl">
             <img
               src={`https://github-readme-streak-stats.herokuapp.com/?user=${GITHUB_USERNAME}&theme=tokyonight&hide_border=true&background=00000000&ring=6366f1&fire=a855f7&currStreakLabel=818cf8&sideLabels=94a3b8&dates=64748b`}
               alt="GitHub Streak"
-              className="w-full rounded-xl"
+              className="w-full rounded-lg"
               loading="lazy"
             />
           </div>
 
           {/* GitHub Contribution Graph */}
-          <div className="card-glass p-4 glow-box overflow-hidden rounded-2xl">
-            <h4 className="text-sm font-semibold text-slate-600 dark:text-slate-300 mb-3 flex items-center gap-2">
-              <span className="w-2 h-2 bg-green-500 rounded-full" />
+          <div className="card-glass p-3 overflow-hidden rounded-xl">
+            <h4 className="text-xs font-semibold text-slate-600 dark:text-slate-300 mb-2 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
               Contribution Graph
             </h4>
             <img
@@ -233,11 +233,11 @@ export default function GitHubStats() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="space-y-6"
         >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center">
-              <SiLeetcode className="text-white text-xl" />
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-8 h-8 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center">
+              <SiLeetcode className="text-white text-base" />
             </div>
-            <h3 className="text-xl font-bold text-slate-800 dark:text-white">LeetCode</h3>
+            <h3 className="text-lg font-bold text-slate-800 dark:text-white">LeetCode</h3>
             <a
               href={`https://leetcode.com/u/${LEETCODE_USERNAME}/`}
               target="_blank"
@@ -249,11 +249,11 @@ export default function GitHubStats() {
           </div>
 
           {/* LeetCode Stats Card */}
-          <div className="card-glass p-2 glow-box overflow-hidden rounded-2xl">
+          <div className="card-glass p-1.5 overflow-hidden rounded-xl">
             <img
-              src={`https://leetcard.jacoblin.cool/${LEETCODE_USERNAME}?theme=dark&font=Nunito&ext=heatmap&border=0&radius=16`}
+              src={`https://leetcard.jacoblin.cool/${LEETCODE_USERNAME}?theme=dark&font=Nunito&ext=heatmap&border=0&radius=12`}
               alt="LeetCode Stats"
-              className="w-full rounded-xl"
+              className="w-full rounded-lg"
               loading="lazy"
             />
           </div>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { scroller } from "react-scroll";
-import { HiMenuAlt3, HiX, HiSun, HiMoon, HiDownload } from "react-icons/hi";
+import { HiMenuAlt3, HiX, HiSun, HiMoon, HiDownload, HiExternalLink } from "react-icons/hi";
 import { useTheme } from "../context/ThemeContext";
 
 const NAV_ITEMS = [
@@ -63,8 +63,8 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border-b border-white/20 dark:border-slate-800/50 shadow-lg shadow-slate-900/5 dark:shadow-slate-900/20 py-3"
-          : "bg-transparent py-5"
+          ? "bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border-b border-white/20 dark:border-slate-800/50 shadow-lg shadow-slate-900/5 dark:shadow-slate-900/20 py-2"
+          : "bg-transparent py-3"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
@@ -100,6 +100,17 @@ export default function Navbar() {
               }`} />
             </button>
           ))}
+
+          {/* Blog Link */}
+          <a
+            href="https://corelearnly.com/blog"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative px-4 py-2 font-medium rounded-xl transition-all duration-300 text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-1"
+          >
+            Blog
+            <HiExternalLink size={14} className="opacity-50" />
+          </a>
 
           {/* Divider */}
           <div className="w-px h-6 bg-slate-200 dark:bg-slate-700 mx-2" />
@@ -179,6 +190,17 @@ export default function Navbar() {
                 {item.label}
               </button>
             ))}
+            <a
+              href="https://corelearnly.com/blog"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-left px-4 py-3 rounded-xl font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300"
+            >
+              <span className="flex items-center gap-1">
+                Blog
+                <HiExternalLink size={14} className="opacity-50" />
+              </span>
+            </a>
             <a
               href="/assets/Ganesh_Resume.pdf"
               target="_blank"

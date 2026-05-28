@@ -148,182 +148,107 @@ const projects: Project[] = [
   },
 ];
 
-interface ProjectCardProps {
-  project: Project;
-  index: number;
-}
-
-function ProjectCard({ project, index }: ProjectCardProps) {
+function ProjectCard({ project }: { project: Project }) {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [transform, setTransform] = useState({ rotateX: 0, rotateY: 0 });
   const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = (y - centerY) / 10;
-    const rotateY = (centerX - x) / 10;
-    setTransform({ rotateX, rotateY });
-  };
-
-  const handleMouseLeave = () => {
-    setTransform({ rotateX: 0, rotateY: 0 });
-    setIsHovered(false);
-  };
-
   const cardLink = project.website || project.demo || project.appStore;
 
   return (
     <div
       ref={cardRef}
-      className="perspective group cursor-pointer"
-      onMouseMove={handleMouseMove}
+      className="group cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={handleMouseLeave}
-      style={{ animationDelay: `${index * 100}ms` }}
+      onMouseLeave={() => setIsHovered(false)}
       onClick={() => {
         if (cardLink) window.open(cardLink, "_blank", "noopener,noreferrer");
       }}
     >
-      <div
-        className="relative h-full preserve-3d transition-transform duration-200 ease-out"
-        style={{
-          transform: `rotateX(${transform.rotateX}deg) rotateY(${transform.rotateY}deg)`,
-        }}
-      >
-        {/* Glow effect behind card */}
+      <div className="relative h-full">
+        {/* Glow effect */}
         <div
-          className={`absolute -inset-1 bg-gradient-to-r ${project.gradient} rounded-3xl opacity-0 group-hover:opacity-70 blur-xl transition-all duration-500 -z-10`}
+          className={`absolute -inset-0.5 bg-gradient-to-r ${project.gradient} rounded-2xl opacity-0 group-hover:opacity-60 blur-lg transition-all duration-500 -z-10`}
         />
 
-        {/* Main card */}
-        <div className="relative h-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl border border-white/20 dark:border-slate-700/50 rounded-2xl overflow-hidden shadow-xl">
+        {/* Card */}
+        <div className="relative h-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl border border-white/20 dark:border-slate-700/50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
           {/* Animated border */}
           <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}>
-            <div className="absolute inset-[2px] bg-white dark:bg-slate-800 rounded-2xl" />
+            <div className="absolute inset-[1.5px] bg-white dark:bg-slate-800 rounded-xl" />
           </div>
 
-          {/* Content container */}
           <div className="relative h-full flex flex-col">
-            {/* Image Section */}
-            <div className="relative h-48 overflow-hidden">
-              {/* Gradient overlay */}
+            {/* Image — compact */}
+            <div className="relative h-32 overflow-hidden">
               <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-10 group-hover:opacity-20 transition-opacity duration-500`} />
-
-              {/* Pattern overlay */}
-              <div className="absolute inset-0 opacity-5">
-                <div className="absolute inset-0" style={{
-                  backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
-                  backgroundSize: '20px 20px'
-                }} />
-              </div>
-
-              {/* Image */}
-              <div className="absolute inset-0 flex items-center justify-center p-6">
+              <div className="absolute inset-0 flex items-center justify-center p-4">
                 <img
                   src={project.image}
                   alt={project.name}
-                  className={`max-w-full max-h-full object-contain transition-all duration-700 ${
-                    isHovered ? 'scale-110 rotate-2' : 'scale-100'
+                  className={`max-w-full max-h-full object-contain transition-all duration-500 ${
+                    isHovered ? "scale-110" : "scale-100"
                   }`}
                 />
               </div>
-
-              {/* Floating sparkles on hover */}
-              <div className={`absolute top-4 right-4 transition-all duration-500 ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                <div className={`p-2 bg-gradient-to-br ${project.gradient} rounded-lg shadow-lg`}>
-                  <HiSparkles className="text-white text-lg" />
-                </div>
-              </div>
             </div>
 
-            {/* Content Section */}
-            <div className="relative flex-grow p-6 flex flex-col">
-              {/* Title */}
-              <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary-500 group-hover:to-purple-500 transition-all duration-300">
+            {/* Content */}
+            <div className="relative flex-grow p-4 flex flex-col">
+              <h3 className="text-base font-bold text-slate-800 dark:text-white mb-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary-500 group-hover:to-purple-500 transition-all duration-300 truncate">
                 {project.name}
               </h3>
 
-              {/* Description */}
-              <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-2 flex-grow">
+              <p className="text-slate-600 dark:text-slate-400 text-xs mb-3 line-clamp-2 flex-grow leading-relaxed">
                 {project.description}
               </p>
 
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2 mb-4">
+              {/* Tech tags */}
+              <div className="flex flex-wrap gap-1.5 mb-3">
                 {project.tech.map((tech, i) => (
                   <span
                     key={i}
-                    className={`px-3 py-1 text-xs font-medium rounded-full transition-all duration-300 ${
+                    className={`px-2 py-0.5 text-[10px] font-medium rounded-full transition-all duration-300 ${
                       isHovered
-                        ? `bg-gradient-to-r ${project.gradient} text-white shadow-md`
-                        : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
+                        ? `bg-gradient-to-r ${project.gradient} text-white`
+                        : "bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300"
                     }`}
-                    style={{ transitionDelay: `${i * 50}ms` }}
                   >
                     {tech}
                   </span>
                 ))}
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex flex-wrap gap-2" onClick={(e) => e.stopPropagation()}>
+              {/* Action buttons */}
+              <div className="flex flex-wrap gap-1.5" onClick={(e) => e.stopPropagation()}>
                 {project.repo && (
-                  <a
-                    href={project.repo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 px-4 py-2 bg-slate-900 dark:bg-slate-600 text-white text-sm rounded-xl hover:scale-105 hover:shadow-lg transition-all duration-300"
-                  >
-                    <FaGithub size={14} />
-                    <span>Code</span>
+                  <a href={project.repo} target="_blank" rel="noopener noreferrer"
+                    className="flex items-center gap-1 px-3 py-1.5 bg-slate-900 dark:bg-slate-600 text-white text-xs rounded-lg hover:scale-105 transition-all duration-300">
+                    <FaGithub size={11} /><span>Code</span>
                   </a>
                 )}
                 {project.demo && (
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r ${project.gradient} text-white text-sm rounded-xl hover:scale-105 hover:shadow-lg transition-all duration-300`}
-                  >
-                    <HiCode size={14} />
-                    <span>Demo</span>
+                  <a href={project.demo} target="_blank" rel="noopener noreferrer"
+                    className={`flex items-center gap-1 px-3 py-1.5 bg-gradient-to-r ${project.gradient} text-white text-xs rounded-lg hover:scale-105 transition-all duration-300`}>
+                    <HiCode size={11} /><span>Demo</span>
                   </a>
                 )}
                 {project.website && (
-                  <a
-                    href={project.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 px-4 py-2 border-2 border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300 text-sm rounded-xl hover:border-primary-500 hover:text-primary-600 dark:hover:text-primary-400 hover:scale-105 transition-all duration-300"
-                  >
-                    <HiExternalLink size={14} />
-                    <span>Site</span>
+                  <a href={project.website} target="_blank" rel="noopener noreferrer"
+                    className="flex items-center gap-1 px-3 py-1.5 border border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300 text-xs rounded-lg hover:border-primary-500 hover:text-primary-500 hover:scale-105 transition-all duration-300">
+                    <HiExternalLink size={11} /><span>Site</span>
                   </a>
                 )}
                 {project.appStore && (
-                  <a
-                    href={project.appStore}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r ${project.gradient} text-white text-sm rounded-xl hover:scale-105 hover:shadow-lg transition-all duration-300`}
-                  >
-                    <FaAppStoreIos size={14} />
-                    <span>App</span>
+                  <a href={project.appStore} target="_blank" rel="noopener noreferrer"
+                    className={`flex items-center gap-1 px-3 py-1.5 bg-gradient-to-r ${project.gradient} text-white text-xs rounded-lg hover:scale-105 transition-all duration-300`}>
+                    <FaAppStoreIos size={11} /><span>App</span>
                   </a>
                 )}
               </div>
             </div>
           </div>
 
-          {/* Shine effect */}
-          <div
-            className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none`}
-          />
+          {/* Shine */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none" />
         </div>
       </div>
     </div>
@@ -342,38 +267,37 @@ export default function Projects() {
       : projects.filter((p) => p.tech.includes(selectedTech));
 
   return (
-    <div className="px-6 py-12 max-w-7xl mx-auto">
+    <div className="px-6 py-8 max-w-7xl mx-auto">
       {/* Section Header */}
-      <div className="text-center mb-16">
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary-500/10 to-purple-500/10 border border-primary-500/20 rounded-full mb-6">
+      <div className="text-center mb-10">
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary-500/10 to-purple-500/10 border border-primary-500/20 rounded-full mb-4">
           <HiSparkles className="text-primary-500" />
           <span className="text-primary-600 dark:text-primary-400 text-sm font-medium">
             Featured Work
           </span>
         </div>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
           <span className="text-slate-800 dark:text-white">My </span>
           <span className="gradient-text-animated">Projects</span>
         </h2>
-        <p className="text-slate-500 dark:text-slate-400 text-lg md:text-xl max-w-2xl mx-auto">
+        <p className="text-slate-500 dark:text-slate-400 text-base max-w-xl mx-auto">
           A showcase of applications and experiences I've crafted with passion
         </p>
       </div>
 
-      {/* Animated Filter Bar */}
-      <div className="flex flex-wrap gap-3 justify-center mb-12">
+      {/* Filter Bar */}
+      <div className="flex flex-wrap gap-2 justify-center mb-8">
         {filters.map((tech, idx) => (
           <button
             key={tech}
             onClick={() => setSelectedTech(tech)}
-            className={`relative px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 overflow-hidden ${
+            className={`relative px-4 py-2 rounded-lg text-xs font-semibold transition-all duration-300 overflow-hidden ${
               selectedTech === tech
                 ? "text-white shadow-lg shadow-primary-500/30 scale-105"
                 : "bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-primary-300 dark:hover:border-primary-600 hover:scale-105"
             }`}
             style={{ animationDelay: `${idx * 50}ms` }}
           >
-            {/* Active gradient background */}
             {selectedTech === tech && (
               <div className="absolute inset-0 bg-gradient-to-r from-primary-600 via-purple-600 to-pink-600 animate-gradient-x bg-[length:200%_auto]" />
             )}
@@ -382,32 +306,26 @@ export default function Projects() {
         ))}
       </div>
 
-      {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredProjects.length === 0 ? (
-          <div className="col-span-full text-center py-20">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-slate-100 dark:bg-slate-800 rounded-full mb-4">
-              <HiCode className="text-4xl text-slate-400" />
-            </div>
-            <p className="text-slate-500 dark:text-slate-400 text-lg">
-              No projects found for this filter.
-            </p>
+      {/* Projects Grid — uniform 4-col on lg, 3-col on md, 2-col on sm */}
+      {filteredProjects.length === 0 ? (
+        <div className="text-center py-16">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-slate-100 dark:bg-slate-800 rounded-full mb-4">
+            <HiCode className="text-3xl text-slate-400" />
           </div>
-        ) : (
-          filteredProjects.map((project, idx) => (
+          <p className="text-slate-500 dark:text-slate-400">
+            No projects found for this filter.
+          </p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          {filteredProjects.map((project) => (
             <ProjectCard
               key={`${selectedTech}-${project.name}`}
               project={project}
-              index={idx}
             />
-          ))
-        )}
-      </div>
-
-      {/* Bottom decoration */}
-      <div className="mt-20 flex justify-center">
-        <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary-500 to-transparent rounded-full" />
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
